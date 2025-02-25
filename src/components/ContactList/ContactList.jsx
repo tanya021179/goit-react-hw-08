@@ -3,17 +3,15 @@ import Contact from "../Contact/Contact";
 import s from "./ContactList.module.css";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaUser } from "react-icons/fa6";
-import { deleteContact } from "../../redux/contactsOps";
+import { deleteContact } from "../../redux/contacts/operations";
 import {
   selectFilteredContacts,
   selectLoading,
-} from "../../redux/contactsSlice";
-// import { selectNameFilter } from "../../redux/filtersSlice";
+} from "../../redux/contacts/selectors";
 
 const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
-  // const filter = useSelector(selectNameFilter);
   const isLoading = useSelector(selectLoading);
 
   if (isLoading) {
@@ -23,10 +21,6 @@ const ContactList = () => {
   if (!contacts.length) {
     return <div>No contacts available.</div>;
   }
-
-  // const filteredData = contacts.filter((item) =>
-  //   item.name.toLowerCase().includes(filter.toLowerCase())
-  // );
 
   return (
     <div>
