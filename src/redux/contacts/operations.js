@@ -1,13 +1,12 @@
-import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { api } from "../auth/operations";
 
 export const fetchContacts = createAsyncThunk(
   `contacts/fetchAll`,
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(
-        `https://67b4c786a9acbdb38ed057c3.mockapi.io/contacts`
-      );
+      const response = await api.get(`/contacts`);
+      console.log("Contacts:", response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -19,11 +18,11 @@ export const deleteContact = createAsyncThunk(
   `contacts/deleteContact`,
   async (id, thunkAPI) => {
     try {
-      await axios.delete(
-        `https://67b4c786a9acbdb38ed057c3.mockapi.io/contacts/${id}`
-      );
+      console.log("Attempting to delete contact with id:", id);
+      await api.delete(`/contacts/${id}`);
       return id;
     } catch (error) {
+      console.error("Error deleting contact:", error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -33,10 +32,7 @@ export const addContact = createAsyncThunk(
   `contacts/createContact`,
   async (contact, thunkAPI) => {
     try {
-      const response = await axios.post(
-        `https://67b4c786a9acbdb38ed057c3.mockapi.io/contacts`,
-        contact
-      );
+      const response = await api.post(`/contacts`, contact);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

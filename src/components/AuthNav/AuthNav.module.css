@@ -1,0 +1,6 @@
+.link {
+  font-size: 26px;
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-end;
+}

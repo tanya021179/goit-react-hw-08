@@ -4,6 +4,7 @@ import {
   deleteContact,
   fetchContacts,
 } from "../contacts/operations";
+import { logout } from "../auth/operations";
 // import { selectNameFilter } from "../filters/slice";
 
 const initialState = {
@@ -25,6 +26,7 @@ const slice = createSlice({
       .addCase(fetchContacts.pending, (state) => {
         state.loading = true;
       })
+      .addCase(logout.fulfilled, () => initialState)
       .addCase(fetchContacts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;

@@ -15,8 +15,6 @@ const clearAuthBar = () => {
   api.defaults.headers.common.Authorization = ``;
 };
 
-// said123456@gmail.com
-
 export const register = createAsyncThunk(
   "auth/register",
   async (body, thunkAPI) => {
@@ -48,3 +46,24 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const refreshUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    try {
+      const savedToken = thunkAPI.getState().auth.token;
+      console.log("Saved token in refreshUser:", savedToken);
+
+      if (savedToken === null) {
+        return thunkAPI.rejectWithValue("Token does not exist!");
+      }
+
+      setAuthBar(savedToken);
+
+      const { data } = await api.get("/users/current");
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
