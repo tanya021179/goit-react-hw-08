@@ -17,7 +17,7 @@ const UserMenu = () => {
 
   return (
     <div>
-      <button className={s.button} onClick={handleLogout}>
+      <button className={s.btnOut} onClick={handleLogout}>
         Log Out
       </button>
     </div>

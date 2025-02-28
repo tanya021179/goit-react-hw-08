@@ -1,17 +1,7 @@
-/* .link {
-  font-size: 26px;
-  text-decoration: none;
+@media (max-width: 1200px) {
+  .header {
+    display: flex;
+    border-bottom: 2px solid black;
+    justify-content: space-between;
+  }
 }
-
-.nav {
-  display: flex;
-  gap: 20px;
-  border-bottom: 2px solid black;
-  margin: 20px;
-  padding-bottom: 20px;
-}
-
-.active {
-  color: red;
-  text-decoration: underline;
-} */

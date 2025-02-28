@@ -11,3 +11,18 @@
   cursor: pointer;
   margin-bottom: 15px;
 }
+
+.button {
+  font-size: 16px;
+  align-self: center;
+  width: 150px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  background: #fff;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #e1e2ea;
+  color: white;
+}

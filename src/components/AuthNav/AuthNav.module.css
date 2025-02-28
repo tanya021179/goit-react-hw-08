@@ -1,6 +1,12 @@
+.div {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+  margin: 20px;
+}
+
 .link {
   font-size: 26px;
   text-decoration: none;
-  display: flex;
-  justify-content: flex-end;
+  color: black;
 }

@@ -4,10 +4,16 @@ import s from "./Navigation.module.css";
 const Navigation = () => {
   return (
     <nav className={s.nav}>
-      <NavLink className={s.link} to="/">
+      <NavLink
+        className={({ isActive }) => `${s.link} ${isActive ? s.active : ""}`}
+        to="/"
+      >
         Home
       </NavLink>
-      <NavLink className={s.link} to="/contacts">
+      <NavLink
+        className={({ isActive }) => `${s.link} ${isActive ? s.active : ""}`}
+        to="/contacts"
+      >
         Tasks
       </NavLink>
     </nav>

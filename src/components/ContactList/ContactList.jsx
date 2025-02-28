@@ -32,7 +32,12 @@ const ContactList = () => {
             nameIcon={<FaUser />}
             numberIcon={<FaPhoneAlt />}
           />
-          <button onClick={() => dispatch(deleteContact(id))}>Delete</button>
+          <button
+            className={s.button}
+            onClick={() => dispatch(deleteContact(id))}
+          >
+            Delete
+          </button>
         </li>
       ))}
     </div>
