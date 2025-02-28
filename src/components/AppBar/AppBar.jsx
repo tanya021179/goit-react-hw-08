@@ -7,14 +7,11 @@ import { useSelector } from "react-redux";
 
 const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  // const user = useSelector(selectUser);
-  // const dispatch = useDispatch();
 
   return (
     <header className={s.header}>
       <Navigation />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
-      {/* {user.name && <h3>{user.email}</h3>} */}
     </header>
   );
 };
