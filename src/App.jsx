@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-// import { fetchContacts } from "./redux/contacts/operations";
 import HomePage from "./pages/HomePage/HomePage";
 import { Route, Routes } from "react-router-dom";
 import ContactsPage from "./pages/ContactsPage/ContactsPage";

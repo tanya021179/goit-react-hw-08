@@ -5,7 +5,6 @@ import {
   fetchContacts,
 } from "../contacts/operations";
 import { logout } from "../auth/operations";
-// import { selectNameFilter } from "../filters/slice";
 
 const initialState = {
   items: [],
