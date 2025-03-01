@@ -14,28 +14,18 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-const persistConfig = {
+const authPersistConfig = {
   key: "auth-data",
   version: 1,
   storage,
   whitelist: ["token"],
 };
 
-const persistConfigContacts = {
-  key: "contacts-data",
-  version: 1,
-  storage,
-};
-
-const persistedReducer = persistReducer(persistConfig, authReducer);
-const persistedContactsReducer = persistReducer(
-  persistConfigContacts,
-  contactReducer
-);
+const persistedReducer = persistReducer(authPersistConfig, authReducer);
 
 export const store = configureStore({
   reducer: {
-    contacts: persistedContactsReducer,
+    contacts: contactReducer,
     filter: filterReducer,
     auth: persistedReducer,
   },

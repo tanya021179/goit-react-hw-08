@@ -1,10 +1,13 @@
 import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/auth/operations";
 import s from "./UserMenu.module.css";
+import { selectUser } from "../../redux/auth/selectors";
 
 const UserMenu = () => {
   const dispatch = useDispatch();
+
+  const userName = useSelector(selectUser);
 
   const handleLogout = () => {
     dispatch(logout())
@@ -17,6 +20,11 @@ const UserMenu = () => {
 
   return (
     <div>
+      {userName ? (
+        <p className={s.text}>Hello {userName.email}</p>
+      ) : (
+        <p>Guest</p>
+      )}
       <button className={s.btnOut} onClick={handleLogout}>
         Log Out
       </button>
